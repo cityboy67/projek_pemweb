@@ -1,0 +1,115 @@
+body{
+  padding: 0;
+  margin: 0;
+  background-color: #FAFAF7;
+  padding-top: 56px;
+}
+html{
+  scroll-behavior: smooth;
+}
+a:visited, a:link{
+  text-decoration: none;
+  color: inherit;
+}
+img{
+  width: 100%;
+}
+p{
+  margin: 0;
+}
+.konten-utama{
+  display: grid;
+  grid-template-rows: 650px 1fr 700px 500px 600px;
+  justify-content: center; 
+  row-gap: 100px;
+  grid-template-columns: 1fr;
+}
+.section1{
+ position: relative;
+ display: flex;
+ max-height: 650px;
+ z-index: 2;
+}
+.section1-img{
+  width: 100%;
+  object-fit: cover;
+}
+.kolom-teks1{
+  position: absolute;
+  left: 65px;
+  top: 80px;
+  max-width: 530px;    
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  z-index: 7;
+}
+.bg-teks1{
+  position: absolute;
+  width: 50%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  z-index: 5;
+  opacity: 0.4;
+}
+.teks1-section1{
+  font-family: DM Serif Display, serif;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 70px;
+}
+.teks2-section1{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 40px;
+  color:#b97a3d;
+  font-weight: bold;
+  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.6);
+}
+.teks3-section1{
+  font-family: 'Times New Roman', Times, serif;
+  color: #b97a3d;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+.button1-section1{
+  cursor: pointer;
+  background: none;
+  color: #b97a3d;
+  border-color: #b97a3d;
+  border-style: solid;
+  border-radius: 5px;
+  transition: 0.25s;
+  font-family: DM Serif Display, serif;
+  font-weight: bold;
+}
+.button1-section1:hover{
+  background-color: rgb(255, 255, 255);
+}
+@media (max-width: 900px){
+  .konten-utama{
+    grid-template-rows: 450px 1fr 400px 600px 600px;
+  }
+  .section1 .kolom-teks1{
+    top: 50px;
+    left: 35px;
+    max-width: 280px;
+    row-gap: 20px;
+    line-height: 35px;
+  }
+  .section1 .bg-teks1{
+    width: 100%;
+  }
+  .section1 .teks1-section1{
+    font-size: 35px;
+  }
+  .section1 .teks2-section1{
+    font-size: 22px;
+  }
+  .section1 .teks3-section1{
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,82 @@
+.section4{
+  position: relative;
+  display: flex;
+  height: 600px;
+  justify-content: center;
+  align-items: center;
+}
+.background-section4{
+  width: 100%;
+}
+.bg-section4{
+  height: 600px;
+  object-fit: cover;
+}
+.bg-teks-section4{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 2;
+  opacity: 0.7;
+}
+.judul-section4{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.judul4{
+  font-size: 55px;
+  font-family: DM Serif Display, serif;
+  color: #b97a3d;
+  font-weight: bold;
+}
+.kolom-section4{
+  position: absolute;
+  display: flex;
+  z-index: 10;
+  color: white;
+  font-family: Merriweather, serif;
+  column-gap: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 50px;
+}
+.judul-teks{
+  font-size: 20px;
+  font-weight: bold;
+  color: #b97a3d;
+  padding-bottom: 15px;
+}
+.teks1-section4{
+  max-width: 400px;
+  text-align: justify;
+  font-size: 14px;
+  line-height: 35px;
+}
+@media (max-width: 900px){
+  .kolom-section4{
+    column-gap: 30px;
+    padding-top: 20px;
+  }
+  .judul4{
+    font-size: 30px
+  }
+  .judul-teks{
+    font-size: 14px;
+  }
+  .teks1-section4{
+    max-width: 180px;
+    font-size: 10px;
+    line-height: 30px;
+  }
+}

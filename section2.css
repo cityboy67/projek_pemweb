@@ -1,0 +1,96 @@
+.section2{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding-top: 130px;
+}
+.kolom-teks1-section2{
+  max-width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+.teks1-section2{
+  font-size: 55px;
+  font-family: DM Serif Display, serif;
+  color: #b97a3d;
+  font-weight: bold;
+}
+.note{
+  color: #2F2F2F;
+  padding-top: 10px;
+  padding-bottom: 10px
+}
+.kolom-kategori{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  column-gap: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.kategori1{
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  max-height: 525px;
+  border-radius: 15px;
+  box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.4);
+}
+.img-kategori1{
+  padding-bottom: 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.kolom-detail1{
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+.teks-kategori1{
+  font-size: 22px;
+  font-weight: bold;
+  color: #2F2F2F; 
+  margin-bottom: 15px;  
+}
+.teks2-kategori1{
+  margin-bottom: 18px;
+  font-size: 18px;
+  color: #2F2F2F;
+  line-height: 24px;
+}
+.kolom-detail1 a{
+  width: 300px;
+  margin-bottom: 20px;
+}
+.button-kategori1{
+  width: 100%;
+  height: 30px;
+  border-radius: 30px;
+  border-style: solid;
+  border-color: #b97a3d;
+  color: #2F2F2F;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.button-kategori1:hover{
+  background-color: #b97a3d;
+}
+@media (max-width: 900px){
+  .section2{
+    padding-top: 100px;
+  }
+  .note{
+    font-size: 12px;
+  }
+  .section2 .kolom-kategori{
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+  .teks1-section2{
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,137 @@
+.header{
+  height: 56px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #7A4A0C;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-left: 30px;
+  padding-right: 30px;
+  column-gap: 15px;
+  opacity: 0.97;
+}
+.logo{
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  cursor: pointer;
+}
+.logo-ikon{
+  max-width: 34px;
+}
+.teks-logo{
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #FAFAF7;
+}
+.tab-list{
+  display: flex;
+  font-size: 18px;
+  color: #FAFAF7;
+  cursor: pointer;
+}
+.tab a{
+  height: 56px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s;
+}
+.tab:hover{
+  background-color: #503108;
+}
+.sosmed{
+  display: flex;
+  column-gap: 20px;
+  max-height: 40px;
+}
+.sosmed .a-sosmed{
+  max-width: 24px;
+  max-height: 24px;
+}
+.sosmed-logo{
+  max-width: 24px;
+  max-height: 24px;
+  object-fit: contain;
+  cursor: pointer;
+}
+.logo-menu{
+  opacity: 1;
+  width: 24px;
+  cursor: pointer;
+}
+.logo-menu span{
+  display: block;
+  height: 3px;
+  background: #FAFAF7;
+  margin: 6px 0;
+  transition: 0.3s;
+}
+.tab-mobile{
+  position: fixed;
+  top: 56px;
+  right: 0;
+  width: 100%;
+  color: white;
+  background-color: #503108;
+  z-index: 20;
+  transition: 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+.tab-m a{
+  height: 45px;
+  padding-left: 12px;
+  display: flex;
+  align-items: center;
+}
+.tab-m:active{
+  background-color: #3b2406;
+}
+#detail-menu {
+  display: none;
+}
+#detail-menu:checked ~ .tab-mobile {
+  max-height: 200px;
+}
+#detail-menu:checked + .logo-menu span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+#detail-menu:checked + .logo-menu span:nth-child(2) {
+  opacity: 0;
+}
+
+#detail-menu:checked + .logo-menu span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 900px){
+  .header p{
+    font-size: 16px;
+  }
+  .header .tab-list{
+    display: none;
+  }
+  .header .sosmed .sosmed-logo{
+    display: none;
+  }
+  .header .sosmed .a-sosmed{
+    display: none;
+  }
+}
+@media (min-width: 901px){
+  .header .sosmed .logo-menu{
+    display: none;
+  }
+  .header .sosmed .logo-menu .tab-mobile{
+    display: none;
+  }
+}
