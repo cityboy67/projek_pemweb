@@ -10,15 +10,13 @@
   <link rel="stylesheet" href="section4.css">
   <link rel="stylesheet" href="section5.css">
   <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="cart.css">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="header">
@@ -82,17 +80,18 @@
       <div class="kolom-teks1">
         <p class="teks1-section1">Koleksi Kaktus & Tanaman Hias Mini</p> 
         <p class="teks2-section1">Cocok Untuk Dekor Rumah dan Hadiah</p>  
-        <p class="teks3-section1">Kunjungi Online Shop Kami &#8658; 
-          <a href="https://shopee.co.id/kaktus_centre">
-            <button class="button1-section1"><span class="teks4-section1">Kaktus_Centre</span></button>
+        <p class="teks3-section1">Belanja Langsung Instan & Aman di Sini &#8658; 
+          <a href="#Produk">
+            <button class="button1-section1"><span class="teks4-section1">Lihat Produk</span></button>
           </a>        
         </p>     
       </div>
     </div>
+    
     <div class="section2" id="Kategori">
       <div class="kolom-teks1-section2">
         <p class="teks1-section2">Kategori</p>
-        <p class="note">Note: Klik beli sekarang akan langsung mengarah ke produk di aplikasi shopee</p>
+        <p class="note">Note: Klik beli sekarang untuk memasukkan paket item pilihan ke dalam keranjang website</p>
       </div>
       <div class="kolom-kategori"> 
         <div class="kategori1">
@@ -106,9 +105,7 @@
               <p>&#183; Media Tanam (Tanah)</p>
               <p>&#183; Batu Hias</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-kategori1">Beli Sekarang</button>
-            </a> 
+            <button class="button-kategori1" onclick="addToCart(1, 'Tanaman Hias Mini Kaktus', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="kategori1">
@@ -122,9 +119,7 @@
               <p>&#183; Media Tanam (Tanah)</p>
               <p>&#183; Batu Hias</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-kategori1">Beli Sekarang</button>
-            </a> 
+            <button class="button-kategori1" onclick="addToCart(2, 'Tanaman Hias Mini Sukulen', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="kategori1">
@@ -138,9 +133,7 @@
               <p>&#183; Media Tanam (Tanah)</p>
               <p>&#183; Batu Hias</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-kategori1">Beli Sekarang</button>
-            </a>           
+            <button class="button-kategori1" onclick="addToCart(3, 'Tanaman Hias Mini Lainnya', 5500)">Beli Sekarang</button>
           </div>
         </div>
       </div>
@@ -149,49 +142,37 @@
     <div class="section3" id="Produk">
       <div class="kolom-teks1-section3">
         <p class="teks1-section3">Produk</p>
-        <p class="note">Note: Klik beli sekarang akan langsung mengarah ke produk di aplikasi shopee</p>
+        <p class="note">Note: Minimal total pembelian dari website adalah 3 pcs tanaman</p>
       </div>
       <div class="kolom-produk">
         <div class="produk">
           <img class="img-produk" src="Kaktus/kaktus1.jpg">
           <div class="detail-produk">
             <div class="rincian-produk">
-              <p class="nama-produk">Tanaman Jenis Kaktus</p>
+              <p class="nama-produk">Tanaman Jenis Kaktus Ke-1</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang
-              </button>
-            </a> 
+            <button class="button-produk" onclick="addToCart(4, 'Tanaman Jenis Kaktus Ke-1', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="produk">
           <img class="img-produk" src="Sukulen/sukulen1.jpg">
           <div class="detail-produk">
             <div class="rincian-produk">
-              <p class="nama-produk">Tanaman Jenis Sukulen</p>
+              <p class="nama-produk">Tanaman Jenis Sukulen Ke-1</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang
-              </button>
-            </a> 
+            <button class="button-produk" onclick="addToCart(5, 'Tanaman Jenis Sukulen Ke-1', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="produk">
           <img class="img-produk" src="Sukulen/sukulen2.jpg">
           <div class="detail-produk">
             <div class="rincian-produk">
-              <p class="nama-produk">Tanaman Jenis Sukulen</p>
+              <p class="nama-produk">Tanaman Jenis Sukulen Ke-2</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang
-              </button>
-            </a> 
+            <button class="button-produk" onclick="addToCart(6, 'Tanaman Jenis Sukulen Ke-2', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="produk">
@@ -201,67 +182,47 @@
               <p class="nama-produk">Tanaman Mini Callisia</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang
-              </button>
-            </a> 
+            <button class="button-produk" onclick="addToCart(7, 'Tanaman Mini Callisia', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="produk">
           <img class="img-produk" src="Kaktus/kaktus3.jpg">
           <div class="detail-produk">
             <div class="rincian-produk">
-              <p class="nama-produk">Tanaman Jenis Kaktus</p>
+              <p class="nama-produk">Tanaman Jenis Kaktus Ke-3</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang
-              </button>
-            </a> 
+            <button class="button-produk" onclick="addToCart(8, 'Tanaman Jenis Kaktus Ke-3', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="produk">
           <img class="img-produk" src="Kaktus/kaktus4.jpg">
           <div class="detail-produk">
             <div class="rincian-produk">
-              <p class="nama-produk">Tanaman Jenis Kaktus</p>
+              <p class="nama-produk">Tanaman Jenis Kaktus Ke-4</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang
-              </button>
-            </a> 
+            <button class="button-produk" onclick="addToCart(9, 'Tanaman Jenis Kaktus Ke-4', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="produk">
           <img class="img-produk" src="Kaktus/kaktus6.jpg">
           <div class="detail-produk">
             <div class="rincian-produk">
-              <p class="nama-produk">Tanaman Jenis Kaktus</p>
+              <p class="nama-produk">Tanaman Jenis Kaktus Ke-6</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang
-              </button>
-            </a> 
+            <button class="button-produk" onclick="addToCart(10, 'Tanaman Jenis Kaktus Ke-6', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="produk">
           <img class="img-produk" src="Sukulen/sukulen4.jpg">
           <div class="detail-produk">
             <div class="rincian-produk">
-              <p class="nama-produk">Tanaman Jenis Sukulen</p>
+              <p class="nama-produk">Tanaman Jenis Sukulen Ke-4</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang
-              </button>
-            </a> 
+            <button class="button-produk" onclick="addToCart(11, 'Tanaman Jenis Sukulen Ke-4', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="produk">
@@ -271,11 +232,7 @@
               <p class="nama-produk">Bunga Bawang</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang
-              </button>
-            </a> 
+            <button class="button-produk" onclick="addToCart(12, 'Bunga Bawang', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="produk">
@@ -285,39 +242,27 @@
               <p class="nama-produk">Bunga Cengkeh</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang
-              </button>
-            </a>         
+            <button class="button-produk" onclick="addToCart(13, 'Bunga Cengkeh', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="produk">
           <img class="img-produk" src="Sukulen/sukulen3.jpg">
           <div class="detail-produk">
             <div class="rincian-produk">
-              <p class="nama-produk">Tanaman Jenis Sukulen</p>
+              <p class="nama-produk">Tanaman Jenis Sukulen Ke-3</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang
-              </button>
-            </a>           
+            <button class="button-produk" onclick="addToCart(14, 'Tanaman Jenis Sukulen Ke-3', 5500)">Beli Sekarang</button>
           </div>
         </div>
         <div class="produk">
           <img class="img-produk" src="Sukulen/sukulen6.jpg">
           <div class="detail-produk">
             <div class="rincian-produk">
-              <p class="nama-produk">Tanaman Jenis Sukulen</p>
+              <p class="nama-produk">Tanaman Jenis Sukulen Ke-6</p>
               <p class="harga">Harga: Rp.5500</p>
             </div>
-            <a href="https://id.shp.ee/V3ggrBj">
-              <button class="button-produk">
-                Beli Sekarang             
-               </button>
-            </a>          
+            <button class="button-produk" onclick="addToCart(15, 'Tanaman Jenis Sukulen Ke-6', 5500)">Beli Sekarang</button>
           </div>
         </div>
       </div>      
@@ -334,27 +279,15 @@
       <div class="kolom-section4">
         <div class="teks1-section4">
           <p class="judul-teks">Penanaman</p>
-          <p>
-            1. Media tanam bisa menggunakan tanah yang dicampur dengan kompos (bisa menggunakan media tanam yang sudah include dalam pembelian produk)
-          </p>
-          <p>
-            2. Penanaman dilakukan seperti menanam tumbuhan pada umumnya
-          </p>
-          <p>
-            3. Langkah-langkah singkatnya sebagai berikut: Isi pot mini dengan tanah lalu tancapkan akar tumbuhan kedalam tanah, pastikan tumbuhan yang tertancap ke tanah tidak miring dan tertancap dangan sempurna
-          </p>
+          <p>1. Media tanam bisa menggunakan tanah yang dicampur dengan kompos (bisa menggunakan media tanam yang sudah include dalam pembelian produk)</p>
+          <p>2. Penanaman dilakukan seperti menanam tumbuhan pada umumnya</p>
+          <p>3. Langkah-langkah singkatnya sebagai berikut: Isi pot mini dengan tanah lalu tancapkan akar tumbuhan kedalam tanah, pastikan tumbuhan yang tertancap ke tanah tidak miring dan tertancap dangan sempurna</p>
         </div>
         <div class="teks1-section4">
           <p class="judul-teks">Perawatan</p>
-          <p>
-            1. Untuk tanaman jenis kaktus boleh disiram setiap 3 hari sekali
-          </p>
-          <p>
-            2. Untuk tanaman jenis sukulen dan tanaman daun lainnya disiram 1-2 hari sekali
-          </p>
-          <p>
-            3. Sebelum Packing tanaman di angin-anginkan dahulu, karena itu pengiriman H+1 pemesanan 
-          </p>
+          <p>1. Untuk tanaman jenis kaktus boleh disiram setiap 3 hari sekali</p>
+          <p>2. Untuk tanaman jenis sukulen dan tanaman daun lainnya disiram 1-2 hari sekali</p>
+          <p>3. Sebelum Packing tanaman di angin-anginkan dahulu, karena itu pengiriman H+1 pemesanan</p>
         </div>
       </div>
     </div>
@@ -366,7 +299,7 @@
           <p class="judul-teks5">Alamat Offline Store</p>
           <p class="teks1-section5">Jl. Ahmad Yani No.1, Benteng Ps. Atas, Kec. Guguk Panjang, Kota Bukittinggi, Sumatera Barat 26136</p>
           <p class="judul-teks5">Pembelian</p>
-          <p class="teks1-section5">&#183; Pembelian bisa melalui online store shopee atau bisa kunjungi sosial media kami (Facebook & Instagram)</p>
+          <p class="teks1-section5">&#183; Pembelian kini bisa langsung aman dan mudah dilakukan melalui sistem checkout di website resmi ini.</p>
           <p class="teks1-section5">&#183; Untuk pembelian melalui offline store bisa kunjungi toko kami pada alamat yang tertera diatas</p>
         </div>
         <div class="kolom-teks1-section5">
@@ -392,5 +325,166 @@
       </div>  
     </div>
   </main>
+
+  <button class="cart-floating-btn" onclick="toggleCart()">
+    🛒 <span class="cart-count-badge" id="cartCount">0</span>
+  </button>
+
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Keranjang Belanja</h3>
+      <button class="close-cart-btn" onclick="toggleCart()">&times;</button>
+    </div>
+    
+    <div class="cart-items-container" id="cartItems">
+      <p style="text-align: center; color: #888; margin-top: 30px;">Keranjang Anda masih kosong.</p>
+    </div>
+    
+    <div class="checkout-section">
+      <h4>Data Pengiriman</h4>
+      <form id="checkoutForm" onsubmit="submitOrder(event)">
+        <div class="form-group">
+          <input type="text" id="custName" placeholder="Nama Lengkap Pembeli" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" id="custPhone" placeholder="Nomor WhatsApp/HP Aktif" required>
+        </div>
+        <div class="form-group">
+          <textarea id="custAddress" rows="3" placeholder="Alamat Pengiriman Lengkap" required></textarea>
+        </div>
+        
+        <div class="total-payment">
+          <span>Total Pembayaran:</span>
+          <span id="totalPrice">Rp 0</span>
+        </div>
+        
+        <button type="submit" class="submit-order-btn">Konfirmasi & Beli Sekarang</button>
+        <div class="cart-note">* Minimal pembelian adalah 3 pcs tanaman</div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let cart = [];
+
+    // Membuka / menutup sidebar keranjang belanja
+    function toggleCart() {
+      const sidebar = document.getElementById('cartSidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    // Menambah item ke dalam keranjang belanja
+    function addToCart(id, name, price) {
+      const existingItem = cart.find(item => item.id === id);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ id: id, name: name, price: price, quantity: 1 });
+      }
+      updateCartUI();
+      
+      // Otomatis buka keranjang agar user melihat item bertambah
+      document.getElementById('cartSidebar').classList.add('open');
+    }
+
+    // Mengubah jumlah kuantitas item
+    function changeQty(id, delta) {
+      const item = cart.find(item => item.id === id);
+      if (item) {
+        item.quantity += delta;
+        if (item.quantity <= 0) {
+          cart = cart.filter(i => i.id !== id);
+        }
+        updateCartUI();
+      }
+    }
+
+    // Memperbarui UI keranjang belanja
+    function updateCartUI() {
+      const container = document.getElementById('cartItems');
+      const countBadge = document.getElementById('cartCount');
+      const totalLabel = document.getElementById('totalPrice');
+      
+      let totalItems = 0;
+      let totalAmount = 0;
+      
+      if (cart.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: #888; margin-top: 30px;">Keranjang Anda masih kosong.</p>';
+        countBadge.innerText = '0';
+        totalLabel.innerText = 'Rp 0';
+        return;
+      }
+      
+      container.innerHTML = '';
+      cart.forEach(item => {
+        totalItems += item.quantity;
+        totalAmount += (item.price * item.quantity);
+        
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <div class="cart-item-info">
+            <p><strong>${item.name}</strong></p>
+            <p style="color:#2e7d32; font-size:13px;">Rp ${item.price.toLocaleString('id-ID')}</p>
+          </div>
+          <div class="cart-item-qty">
+            <button type="button" onclick="changeQty(${item.id}, -1)">-</button>
+            <span>${item.quantity}</span>
+            <button type="button" onclick="changeQty(${item.id}, 1)">+</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+      
+      countBadge.innerText = totalItems;
+      totalLabel.innerText = 'Rp ' + totalAmount.toLocaleString('id-ID');
+    }
+
+    // Mengirim data orderan ke file server PHP menggunakan Fetch API
+    function submitOrder(e) {
+      e.preventDefault();
+      
+      // Cek aturan minimal total item terkumpul
+      let totalQty = cart.reduce((acc, current) => acc + current.quantity, 0);
+      if (totalQty < 3) {
+        alert("Mohon maaf, minimal total pembelian adalah 3 pcs tanaman hias sesuai dengan ketentuan pengiriman.");
+        return;
+      }
+      
+      const totalAmount = cart.reduce((acc, current) => acc + (current.price * current.quantity), 0);
+      
+      const orderData = {
+        nama: document.getElementById('custName').value,
+        telepon: document.getElementById('custPhone').value,
+        alamat: document.getElementById('custAddress').value,
+        cart: cart,
+        total_price: totalAmount
+      };
+      
+      // Kirim data secara asinkron ke server PHP
+      fetch('checkout.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert(data.message);
+          // Reset data setelah berhasil bertransaksi
+          cart = [];
+          updateCartUI();
+          document.getElementById('checkoutForm').reset();
+          toggleCart();
+        } else {
+          alert(data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Terjadi kendala saat mengirimkan pesanan. Coba lagi nanti.');
+      });
+    }
+  </script>
 </body>
 </html>
