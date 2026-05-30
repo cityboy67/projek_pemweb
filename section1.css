@@ -19,7 +19,7 @@ p{
 }
 .konten-utama{
   display: grid;
-  grid-template-rows: 650px 1fr 700px 500px 600px;
+  grid-template-rows: 650px 650px 650px 500px 600px;
   justify-content: center; 
   row-gap: 100px;
   grid-template-columns: 1fr;
@@ -92,6 +92,7 @@ p{
 @media (max-width: 900px){
   .konten-utama{
     grid-template-rows: 450px 1fr 400px 600px 600px;
+    row-gap: 40px;
   }
   .section1 .kolom-teks1{
     top: 50px;

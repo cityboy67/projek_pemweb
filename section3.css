@@ -31,26 +31,25 @@
 }
 .produk{
   box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
-  padding-bottom: 15px;
   border-radius: 15px;
 }
 .img-produk{
+  max-width: 100%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  margin-bottom: 12px;
 }
 .detail-produk{
   display: flex;
   flex-direction: column;
   width: 157px;
   row-gap: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 15px;
 }
 .rincian-produk{
   line-height: 25px;
 }
 .nama-produk{
+  font-size: 14px;
   font-weight: bold;
   color: #2F2F2F;
 }
@@ -89,5 +88,11 @@
     overflow-x: auto;
     white-space: nowrap;
     padding-bottom: 50px;
+  }
+  .nama-produk{
+    font-size: 12px;
+  }
+  .harga{
+    font-size: 11px;
   }
 }

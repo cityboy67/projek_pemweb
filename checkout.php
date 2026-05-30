@@ -1,67 +1,89 @@
 <?php
 header('Content-Type: application/json');
-require_once 'config.php';
+include 'config.php'; // Pastikan koneksi database Anda sudah benar
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Mengambil data JSON mentah dari request fetch frontend
-    $input = json_decode(file_get_contents('php://input'), true);
+    
+    // 1. Ambil data teks dari FormData
+    $name = isset($_POST['customer_name']) ? mysqli_real_escape_string($conn, $_POST['customer_name']) : '';
+    $phone = isset($_POST['customer_phone']) ? mysqli_real_escape_string($conn, $_POST['customer_phone']) : '';
+    $address = isset($_POST['customer_address']) ? mysqli_real_escape_string($conn, $_POST['customer_address']) : '';
+    $cart_json = isset($_POST['cart_items']) ? $_POST['cart_items'] : '[]';
+    
+    $cart_items = json_decode($cart_json, true);
 
-    if (!$input || empty($input['nama']) || empty($input['telepon']) || empty($input['alamat']) || empty($input['cart'])) {
-        echo json_encode(['success' => false, 'message' => 'Harap lengkapi semua data formulir dan keranjang belanja Anda.']);
+    if (empty($name) || empty($phone) || empty($address) || empty($cart_items)) {
+        echo json_encode(['success' => false, 'message' => 'Data formulir tidak lengkap.']);
         exit;
     }
 
-    $nama = $conn->real_escape_string($input['nama']);
-    $telepon = $conn->real_escape_string($input['telepon']);
-    $alamat = $conn->real_escape_string($input['alamat']);
-    $cart = $input['cart'];
-    $total_price = floatval($input['total_price']);
-
-    // Validasi aturan bisnis: Minimal pembelian 3 pcs (sesuai info section 5 Anda)
-    $total_qty = 0;
-    foreach ($cart as $item) {
-        $total_qty += intval($item['quantity']);
+    // 2. Hitung Total Harga Belanjaan
+    $total_price = 0;
+    foreach ($cart_items as $item) {
+        $total_price += $item['price'] * $item['quantity'];
     }
 
-    if ($total_qty < 3) {
-        echo json_encode(['success' => false, 'message' => 'Gagal! Minimal pembelian produk Kaktus Centre adalah 3 pcs tanaman.']);
+    // 3. Validasi & Proses Upload File Bukti Transfer
+    if (!isset($_FILES['payment_proof']) || $_FILES['payment_proof']['error'] !== UPLOAD_ERR_OK) {
+        echo json_encode(['success' => false, 'message' => 'Gagal membaca file bukti transfer.']);
         exit;
     }
 
-    // Memulai database transaction demi keamanan integritas data
-    $conn->begin_transaction();
+    $file = $_FILES['payment_proof'];
+    $allowed_types = ['image/png', 'image/jpeg', 'image/jpg', 'application/pdf'];
+    
+    // Cek format file
+    if (!in_array($file['type'], $allowed_types)) {
+        echo json_encode(['success' => false, 'message' => 'Format file salah! Hanya menerima PNG, JPEG, atau PDF.']);
+        exit;
+    }
 
-    try {
-        // 1. Simpan ke data induk tabel orders
-        $sql_order = "INSERT INTO orders (customer_name, customer_phone, customer_address, total_price) VALUES ('$nama', '$telepon', '$alamat', $total_price)";
-        $conn->query($sql_order);
-        $order_id = $conn->insert_id;
+    // Buat nama unik untuk file agar tidak bentrok (contoh: 1716300000_bukti.png)
+    $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
+    $new_filename = time() . '_' . uniqid() . '.' . $ext;
+    
+    // Tentukan folder penyimpanan di Laragon
+    $upload_dir = 'uploads/';
+    
+    // Jika folder 'uploads' belum ada, buat otomatis
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0777, true);
+    }
 
-        // 2. Simpan setiap item ke tabel order_items
-        $sql_item = $conn->prepare("INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)");
-        
-        foreach ($cart as $item) {
-            $product_id = intval($item['id']);
-            $quantity = intval($item['quantity']);
-            $price = floatval($item['price']);
-            
-            $sql_item->bind_param("iiid", $order_id, $product_id, $quantity, $price);
-            $sql_item->execute();
+    $target_file = $upload_dir . $new_filename;
+
+    // Pindahkan file dari memori sementara ke folder uploads
+    if (!move_uploaded_file($file['tmp_name'], $target_file)) {
+        echo json_encode(['success' => false, 'message' => 'Gagal menyimpan file bukti transfer ke server.']);
+        exit;
+    }
+
+    // 4. Masukkan Data ke Tabel Orders (Simpan nama file/path juga)
+    $query_order = "INSERT INTO orders (customer_name, customer_phone, customer_address, total_price, payment_proof) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($query_order);
+    $stmt->bind_param("sssds", $name, $phone, $address, $total_price, $target_file);
+
+    if ($stmt->execute()) {
+        $order_id = $conn->insert_id; // Ambil ID pesanan yang baru masuk
+
+        // 5. Masukkan Detail Item ke Tabel order_items
+        foreach ($cart_items as $item) {
+            $product_id = $item['id'];
+            $quantity = $item['quantity'];
+            $price = $item['price'];
+
+            $query_item = "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)";
+            $stmt_item = $conn->prepare($query_item);
+            $stmt_item->bind_param("iiid", $order_id, $product_id, $quantity, $price);
+            $stmt_item->execute();
         }
 
-        // Jika semua lancar, terapkan perubahan ke database
-        $conn->commit();
-        echo json_encode([
-            'success' => true, 
-            'message' => "Pesanan berhasil dibuat!\nID Order Anda: #" . $order_id . "\n\nTerima kasih telah berbelanja di Kaktus Centre. Tim kami akan segera menghubungi nomor telepon Anda."
-        ]);
-
-    } catch (Exception $e) {
-        // Batalkan jika ada error struktural
-        $conn->rollback();
-        echo json_encode(['success' => false, 'message' => 'Terjadi kesalahan internal sistem: ' . $e->getMessage()]);
+        // Response Sukses
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Gagal menyimpan data pesanan ke database.']);
     }
 } else {
-    echo json_encode(['success' => false, 'message' => 'Metode request tidak sah.']);
+    echo json_encode(['success' => false, 'message' => 'Metode request tidak valid.']);
 }
 ?>
