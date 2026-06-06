@@ -1,0 +1,163 @@
+/* 1. KUSTOMISASI SCROLLBAR */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* 2. HEADER ADMIN UTAMA */
+.admin-header {
+    background-color: #ffffff;
+    height: 64px;
+    padding: 0 32px;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+/* 3. MENU SIDEBAR */
+.sidebar-menu-btn {
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #cbd5e1; /* Warna teks abu-abu terang */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+.sidebar-menu-btn:hover {
+    background-color: #334155;
+    color: #ffffff;
+    transform: translateX(5px);
+}
+.sidebar-menu-btn.active {
+    background-color: #15803d; /* Warna hijau khas */
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(21, 128, 61, 0.4);
+    font-weight: 600;
+}
+
+/* 4. KARTU (CARDS) UNTUK STATISTIK & WADAH TABEL */
+.kaktus-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Efek melayang khusus untuk kartu statistik di dashboard */
+.kaktus-card.hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+    border-color: #bbf7d0;
+}
+
+/* 5. TABEL (TABLE) KUSTOM */
+.kaktus-table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid #f1f5f9;
+}
+.kaktus-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+.kaktus-table th {
+    background-color: #f8fafc;
+    padding: 16px 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    border-bottom: 2px solid #f1f5f9;
+}
+.kaktus-table td {
+    padding: 16px 20px;
+    font-size: 0.875rem;
+    color: #334155;
+    border-bottom: 1px solid #f8fafc;
+    vertical-align: middle;
+    transition: background-color 0.2s;
+}
+.kaktus-table tbody tr:hover td {
+    background-color: #f8fafc; /* Efek sorot saat baris tabel dilewati mouse */
+}
+
+/* 6. TOMBOL (BUTTONS) */
+.btn-kaktus {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+.btn-kaktus:hover { filter: brightness(1.1); }
+.btn-kaktus:active { transform: scale(0.95); }
+
+.btn-primary { background-color: #15803d; color: white; box-shadow: 0 4px 6px rgba(21, 128, 61, 0.2); }
+.btn-outline { background-color: white; border: 1px solid #d1d5db; color: #374151; }
+.btn-outline:hover { background-color: #f9fafb; border-color: #9ca3af; }
+.btn-icon-only { padding: 8px; border-radius: 8px; font-size: 1rem; }
+
+/* 7. FORMULIR INPUT (MODAL) */
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+.form-input {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 0.875rem;
+    color: #1f2937;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+.form-input:focus {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2); /* Efek cincin hijau saat diklik */
+}
+/* Khusus untuk input file (gambar) */
+.form-file {
+    padding: 6px;
+    background-color: #f8fafc;
+}
+
+/* 8. BADGE (LABEL STATUS) */
+.badge {
+    padding: 4px 12px;
+    border-radius: 9999px; /* Bulat penuh */
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: 1px solid transparent;
+}
+.badge-pending { background-color: #fef3c7; color: #92400e; border-color: #fde68a; }
+.badge-completed { background-color: #dcfce3; color: #166534; border-color: #bbf7d0; }
+.badge-gray { background-color: #f1f5f9; color: #475569; border-color: #e2e8f0; }
+
+/* 9. EFEK MUNCULNYA MODAL */
+.modal-animate-in {
+    animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes modalFadeIn {
+    0% { opacity: 0; transform: scale(0.95) translateY(-10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
