@@ -1,4 +1,4 @@
-const BACKEND_URL = 'admin.php';
+const BACKEND_URL = 'admin_backend/admin.php';
 
 document.addEventListener('DOMContentLoaded', () => {
     loadDashboardStats();

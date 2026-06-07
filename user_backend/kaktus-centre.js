@@ -109,7 +109,7 @@ checkoutForm.addEventListener('submit', function(e) {
     btnSubmit.innerText = "Sedang Memproses...";
     btnSubmit.disabled = true;
 
-    fetch('checkout.php', {
+    fetch('user_backend/checkout.php', {
         method: 'POST',
         body: formData 
     })
