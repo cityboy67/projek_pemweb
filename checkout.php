@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $new_filename = time() . '_' . uniqid() . '.' . $ext;
     
     // Tentukan folder penyimpanan di Laragon
-    $upload_dir = 'bukti_pembayaran/';
+    $upload_dir = 'uploads/';
     
     // Jika folder 'uploads' belum ada, buat otomatis
     if (!is_dir($upload_dir)) {

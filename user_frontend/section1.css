@@ -19,7 +19,7 @@ p{
 }
 .konten-utama{
   display: grid;
-  grid-template-rows: 650px 650px 650px 500px 600px;
+  grid-template-rows: 650px 650px 1fr 500px 600px;
   justify-content: center; 
   row-gap: 100px;
   grid-template-columns: 1fr;
