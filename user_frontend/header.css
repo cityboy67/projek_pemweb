@@ -45,6 +45,7 @@
   transition: 0.25s;
 }
 .tab:hover{
+  transition: all 0.7s;
   background-color: #503108;
 }
 .sosmed{

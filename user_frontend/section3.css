@@ -41,7 +41,7 @@
 .detail-produk{
   display: flex;
   flex-direction: column;
-  width: 157px;
+  width: 160px;
   row-gap: 10px;
   padding: 15px;
 }
