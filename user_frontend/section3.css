@@ -73,11 +73,15 @@
 }
 @media (max-width: 900px){
   .section3{
-    padding-top: 50px;
+    padding-top: 20px;
     height: 363px;
   }
   .teks1-section3{
     font-size: 40px;
+  }
+  .section3 .note{
+    font-size: 0px;
+
   }
   .kolom-produk{
     display: flex;
